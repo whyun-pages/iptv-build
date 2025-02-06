@@ -8,4 +8,4 @@ corepack prepare yarn@1.22.19 --activate
 yarn install
 yarn build
 yarn m3u
-cp -f index.html iptv-sources/m3u/
+cp -f ../index.html m3u/
