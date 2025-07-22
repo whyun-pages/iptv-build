@@ -3,7 +3,6 @@
     <meta charset="utf-8">
     <title>iptv</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,9 +59,14 @@
 <body>
     <div id="content"></div>
     <script>
-        $.get('README.md', function(data) {
-            document.getElementById('content').innerHTML = marked.parse(data);
-        });
+        fetch('README.md')
+            .then(response => response.text())  // 获取响应并将其转化为文本
+            .then(data => {
+                document.getElementById('content').innerHTML = marked.parse(data);  // 使用 marked.js 解析 markdown 内容
+            })
+            .catch(error => {
+                console.error('Error loading the markdown file:', error);
+            });
     </script>
 </body>
 </html>
