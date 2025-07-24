@@ -54,19 +54,15 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        td {
+            word-break: break-all;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
     <div id="content"></div>
-    <script>
-        fetch('README.md')
-            .then(response => response.text())  // 获取响应并将其转化为文本
-            .then(data => {
-                document.getElementById('content').innerHTML = marked.parse(data);  // 使用 marked.js 解析 markdown 内容
-            })
-            .catch(error => {
-                console.error('Error loading the markdown file:', error);
-            });
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
